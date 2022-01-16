@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Suite Rentals</string>
+    <string name="startup_image">Startup Image</string>
+    <string name="suite_rentals_presents">SUITE RENTALS PRESENTS</string>
+    <string name="your_prefect_dream_suite_make_your_trip_more_memorable_by_choosing_to_spend_it_with_best_suite_providers">Your prefect dream suite. Make your trip more memorable by choosing to spend it with best suite providers.</string>
+    <string name="explore">EXPLORE</string>
+    <string name="suite_rentals">SUITE RENTALS</string>
+    <string name="elites_logo">Elites logo</string>
+    <string name="travel_more_n_book_better">Travel more,\nBook better!</string>
+    <string name="find_a_suite_you_will_love_today">Find a suite, you will love today.</string>
+    <string name="create_an_account">CREATE AN ACCOUNT</string>
+    <string name="log_in">LOG IN</string>
+    <string name="by_clicking_this_you_agree_to_our_n_terms_and_conditions_and_privacy_policy">By clicking this you agree to our \n Terms and Conditions and Privacy Policy</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="create_account">←    Create Account</string>
+    <string name="sign_up_to_look_for_amazing_nsuites_around_the_world">Sign-up to look for amazing\nsuites around the world!</string>
+    <string name="lets_get_started">LETS GET STARTED</string>
+    <string name="full_name">Full Name</string>
+    <string name="address">Address</string>
+    <string name="log_out">LOG OUT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

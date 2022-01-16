@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "396411088500",
+    "project_id": "suite-rentals",
+    "storage_bucket": "suite-rentals.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396411088500:android:e3374d8454596c0890eb21",
+        "android_client_info": {
+          "package_name": "com.example.suiterentals"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396411088500-rk79cs0m4halnagmd460gt1gjg9ganjo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHW-ftmTslppQdxuT4I44FRHAcnVball0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396411088500-rk79cs0m4halnagmd460gt1gjg9ganjo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
