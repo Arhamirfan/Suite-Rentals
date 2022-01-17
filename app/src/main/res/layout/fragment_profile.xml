@@ -6,32 +6,281 @@
     android:layout_height="match_parent"
     tools:context=".homeScreen.ProfileFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        android:scrollingCache="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PROFILE AND PRODUCTS"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnlogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOG OUT"
-            android:backgroundTint="@color/redmain"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:foreground="@color/overlay_dark_20"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mainpic1" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/image"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="-45dp"
+                android:src="@drawable/profilepic"
+                app:civ_border="true"
+                app:civ_shadow="true"
+                app:civ_shadow_radius="0"
+                app:civ_border_color="@color/grey_10"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:text="SlaYeR"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+                android:textColor="@color/grey_90" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/spacing_large"
+                    android:layout_height="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_medium"
+                    android:layout_marginRight="@dimen/spacing_medium"
+                    app:srcCompat="@drawable/ic_email"
+                    app:tint="@color/grey_40" />
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email Here"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/grey_40" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spacing_large" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_large">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:tint="@color/grey_80"
+                        app:backgroundTint="@android:color/white"
+                        app:elevation="1dp"
+                        app:fabSize="normal"
+                        app:rippleColor="@color/purpledarkmain"
+                        app:srcCompat="@drawable/ic_person" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:text="Profile"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnDashboard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:tint="@color/grey_80"
+                        app:backgroundTint="@android:color/white"
+                        app:elevation="1dp"
+                        app:fabSize="normal"
+                        app:rippleColor="@color/purpledarkmain"
+                        app:srcCompat="@drawable/ic_data_usage" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:text="Dashboard"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:tint="@color/grey_80"
+                        app:backgroundTint="@android:color/white"
+                        app:elevation="1dp"
+                        app:fabSize="normal"
+                        app:rippleColor="@color/purpledarkmain"
+                        app:srcCompat="@drawable/ic_location" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:text="Location"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_large">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnNotification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:tint="@color/grey_80"
+                        app:backgroundTint="@android:color/white"
+                        app:elevation="1dp"
+                        app:fabSize="normal"
+                        app:rippleColor="@color/purpledarkmain"
+                        app:srcCompat="@drawable/ic_notifications" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:text="Notifications"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnFeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:tint="@color/grey_80"
+                        app:backgroundTint="@android:color/white"
+                        app:elevation="1dp"
+                        app:fabSize="normal"
+                        app:rippleColor="@color/purpledarkmain"
+                        app:srcCompat="@drawable/ic_whatshot" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:text="Feed"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minWidth="100dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/btnLogout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:tint="@color/grey_80"
+                        app:backgroundTint="@android:color/white"
+                        app:elevation="1dp"
+                        app:fabSize="normal"
+                        app:rippleColor="@color/purpledarkmain"
+                        app:srcCompat="@drawable/ic_poweroff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:text="Logout"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <Button-->
+<!--        android:id="@+id/btnlogout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="LOG OUT"-->
+<!--        android:backgroundTint="@color/redmain"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="parent" />-->
 
 </FrameLayout>

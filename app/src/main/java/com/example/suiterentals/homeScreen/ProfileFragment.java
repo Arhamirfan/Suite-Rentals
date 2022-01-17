@@ -9,14 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.suiterentals.MainActivity;
+import com.example.suiterentals.Model.FirebaseData;
 import com.example.suiterentals.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -25,12 +29,24 @@ public class ProfileFragment extends Fragment {
 
     View view;
     FirebaseAuth mauth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     Context contexxt;
+    FirebaseUser users,mCurrentUser;
+    TextView txtname,txtemail;
+    String uid,naame,eemail;
+    FloatingActionButton profile,dashboard,location,notification,feeds,logout;
     SharedPreferences sharedPreferences;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+    }
+//
+    @Override
+    public void onStart() {
+        super.onStart();
+        mauth = FirebaseAuth.getInstance();
+        users = mauth.getCurrentUser();
     }
 
     @Override
@@ -50,7 +66,35 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button logout = (Button) view.findViewById(R.id.btnlogout);
+        FirebaseAuth auth;
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+        uid = user.getUid();
+        eemail = user.getEmail();
+        //Toast.makeText(contexxt, "id after getting : "+uid, Toast.LENGTH_SHORT).show();
+//        String name = user.getDisplayName();
+//        String email = user.getEmail();
+//        if(!name.isEmpty()){
+            txtname = view.findViewById(R.id.txtName);
+            txtemail = view.findViewById(R.id.txtEmail);
+            txtname.setText(eemail);
+            txtemail.setText(uid);
+//        }
+//        else{
+//            Toast.makeText(getActivity(), "Getting No Data", Toast.LENGTH_SHORT).show();
+//        }
+        profile= (FloatingActionButton) view.findViewById(R.id.btnProfile);
+        dashboard= (FloatingActionButton) view.findViewById(R.id.btnDashboard);
+        location= (FloatingActionButton) view.findViewById(R.id.btnLocation);
+        notification= (FloatingActionButton) view.findViewById(R.id.btnNotification);
+        feeds= (FloatingActionButton) view.findViewById(R.id.btnFeed);
+        logout = (FloatingActionButton) view.findViewById(R.id.btnLogout);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "This is profile", Toast.LENGTH_SHORT).show();
+            }
+        });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,12 +105,13 @@ public class ProfileFragment extends Fragment {
 
     public void logoutDetails()
     {
-        mauth = FirebaseAuth.getInstance();
-        FirebaseUser user = mauth.getCurrentUser();
         sharedPreferences = contexxt.getSharedPreferences("loggedinuser",0);
         SharedPreferences.Editor editoor = sharedPreferences.edit();
         String svedmail= sharedPreferences.getString("email",null);
-        Toast.makeText(getActivity(), "Logging out user: \n DB: "+user.getDisplayName() + "\n SP : "+ svedmail, Toast.LENGTH_SHORT).show();
+        //No data is showing under DB session..
+        //TODO: not getting name from database
+        //Log.d("TAG", "DB name: "+ users.getDisplayName());
+        //Toast.makeText(getActivity(), "Logging out user: \n DB: "+users.getDisplayName() + "\n SP : "+ svedmail, Toast.LENGTH_SHORT).show();
         mauth.signOut();
         editoor.clear();
         editoor.apply();

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.suiterentals.Model.FirebaseData;
 import com.example.suiterentals.homeScreen.HomeActivity;
 import com.example.suiterentals.loginScreens.loginsMainActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,7 +28,15 @@ public class MainActivity extends AppCompatActivity {
         if(sharedPreferences.contains("email"))
         {
             String name = sharedPreferences.getString("email","");
-            Toast.makeText(this, "user session: "+ name, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "user session: "+ name, Toast.LENGTH_SHORT).show();
+            mauth = FirebaseAuth.getInstance();
+            FirebaseUser user = mauth.getCurrentUser();
+            Toast.makeText(this, "user session: DB:"+ user.getUid() + "\n SB: "+ name, Toast.LENGTH_SHORT).show();
+            constants constant = new constants();
+            constant.fb = new FirebaseData(user.getUid(), user.getDisplayName(),user.getEmail());
+            constant.fb.setId(user.getUid());
+            constant.fb.setName(user.getDisplayName());
+            constant.fb.setEmail(user.getEmail());
             startActivity(new Intent(MainActivity.this,HomeActivity.class));
             finish();
         } else{

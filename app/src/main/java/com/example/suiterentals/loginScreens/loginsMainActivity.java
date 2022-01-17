@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.suiterentals.Model.FirebaseData;
 import com.example.suiterentals.R;
 import com.example.suiterentals.homeScreen.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -78,6 +79,12 @@ public class loginsMainActivity extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
                         Toast.makeText(loginsMainActivity.this, "Successfully logged in!", Toast.LENGTH_SHORT).show();
+                        FirebaseAuth mAuth;
+                        FirebaseUser User;
+                        mAuth = FirebaseAuth.getInstance();
+                        User = mAuth.getCurrentUser();
+                        Toast.makeText(getApplicationContext(), "uid: "+User.getUid(), Toast.LENGTH_SHORT).show();
+                        FirebaseData fb = new FirebaseData(User.getUid(),User.getDisplayName(),User.getEmail());
                         startActivity(new Intent(loginsMainActivity.this,HomeActivity.class));
                     }
                     else{
