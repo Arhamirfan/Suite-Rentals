@@ -6,19 +6,241 @@
     android:layout_height="match_parent"
     tools:context=".homeScreen.ProductFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:scrollingCache="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:fontFamily="@font/gilroybold"
+        android:textColor="@color/purpledarkmain"
+        android:textSize="@dimen/spacing_xlarge"
+        android:text="Let's Get Started"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/gilroylight"
+        android:textColor="@color/grey_60"
+        android:layout_marginTop="10dp"
+        android:text="Find a suite you will love today"
+        />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/homeart" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ADD PRODUCTs"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/gilroybold"
+            android:textColor="@color/purpledarkmain"
+            android:textSize="@dimen/spacing_mlarge"
+            android:text="Where?"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/editlatitude"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:background="@drawable/custom_edittext"
+                android:paddingStart="10dp"
+                android:fontFamily="@font/gilroylight"
+                android:layout_marginEnd="10dp"
+                android:inputType="numberDecimal"
+                android:hint="Latitide" />
+
+            <EditText
+                android:id="@+id/editLongitude"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:background="@drawable/custom_edittext"
+                android:fontFamily="@font/gilroylight"
+                android:paddingStart="10dp"
+                android:layout_marginStart="10dp"
+                android:inputType="numberDecimal"
+                android:hint="Longitude" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroybold"
+            android:textColor="@color/purpledarkmain"
+            android:textSize="@dimen/spacing_mlarge"
+            android:text="Home Type?"
+            />
+
+        <EditText
+            android:id="@+id/editsuitetype"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_edittext"
+            android:paddingStart="10dp"
+            android:fontFamily="@font/gilroylight"
+            android:inputType="text"
+            android:gravity="center"
+            android:hint="Duplex Home" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroybold"
+            android:textColor="@color/purpledarkmain"
+            android:textSize="@dimen/spacing_mlarge"
+            android:text="Price?"
+            />
+
+        <EditText
+            android:id="@+id/editPrice"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_edittext"
+            android:fontFamily="@font/gilroylight"
+            android:paddingStart="10dp"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:hint="Ex.. $ 1500" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroybold"
+            android:textColor="@color/purpledarkmain"
+            android:textSize="@dimen/spacing_mlarge"
+            android:text="How many Rooms?"
+            />
+
+        <EditText
+            android:id="@+id/editrooms"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_edittext"
+            android:fontFamily="@font/gilroylight"
+            android:paddingStart="10dp"
+            android:inputType="numberDecimal"
+            android:gravity="center"
+            android:hint="2+ Rooms" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroybold"
+            android:textColor="@color/purpledarkmain"
+            android:textSize="@dimen/spacing_mlarge"
+            android:text="Description?"
+            />
+
+        <EditText
+            android:id="@+id/editdescription"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_edittext"
+            android:fontFamily="@font/gilroylight"
+            android:paddingStart="10dp"
+            android:inputType="text"
+            android:gravity="center"
+            android:hint="3 Beds 4 Baths 2345 sqft" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroybold"
+            android:textColor="@color/purpledarkmain"
+            android:textSize="@dimen/spacing_mlarge"
+            android:text="Upload Picture?"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editPicturelocation"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:ems="10"
+                android:fontFamily="@font/gilroylight"
+                android:background="@drawable/custom_edittext"
+                android:paddingStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:inputType="text"
+                android:hint="eg. image-123.png" />
+
+            <Button
+                android:id="@+id/btnPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:text="Upload"
+                android:fontFamily="@font/gilroylight"
+                android:backgroundTint="@color/bluelightmain"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                 />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:text="SUBMIT"
+            android:fontFamily="@font/gilroylight"
+            android:backgroundTint="@color/redmain"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/homeFragment" android:title="Home" android:icon="@drawable/ic_home"/>
-    <item android:id="@+id/productFragment" android:title="Search" android:icon="@drawable/ic_search"/>
-    <item android:id="@+id/searchFragment" android:title="Product" android:icon="@drawable/ic_add"/>
+    <item android:id="@+id/searchFragment" android:title="Search" android:icon="@drawable/ic_search"/>
+    <item android:id="@+id/productFragment" android:title="Product" android:icon="@drawable/ic_add"/>
     <item android:id="@+id/profileFragment" android:title="Profile" android:icon="@drawable/ic_person"/>
 </menu>

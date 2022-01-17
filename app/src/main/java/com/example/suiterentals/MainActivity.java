@@ -31,12 +31,8 @@ public class MainActivity extends AppCompatActivity {
             //Toast.makeText(this, "user session: "+ name, Toast.LENGTH_SHORT).show();
             mauth = FirebaseAuth.getInstance();
             FirebaseUser user = mauth.getCurrentUser();
-            Toast.makeText(this, "user session: DB:"+ user.getUid() + "\n SB: "+ name, Toast.LENGTH_SHORT).show();
-            constants constant = new constants();
-            constant.fb = new FirebaseData(user.getUid(), user.getDisplayName(),user.getEmail());
-            constant.fb.setId(user.getUid());
-            constant.fb.setName(user.getDisplayName());
-            constant.fb.setEmail(user.getEmail());
+            String uid = user.getUid();
+            Toast.makeText(this, "user session: DB:"+ uid + "\n SB: "+ name, Toast.LENGTH_SHORT).show();
             startActivity(new Intent(MainActivity.this,HomeActivity.class));
             finish();
         } else{

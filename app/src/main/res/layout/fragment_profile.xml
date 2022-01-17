@@ -28,7 +28,6 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:foreground="@color/overlay_dark_20"
                 android:scaleType="centerCrop"
                 android:src="@drawable/mainpic1" />
 
@@ -65,7 +64,7 @@
                     android:layout_height="@dimen/spacing_large"
                     android:layout_marginEnd="@dimen/spacing_medium"
                     android:layout_marginRight="@dimen/spacing_medium"
-                    app:srcCompat="@drawable/ic_email"
+                    app:srcCompat="@drawable/ic_person"
                     app:tint="@color/grey_40" />
 
                 <TextView
@@ -189,7 +188,7 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/btnNotification"
+                        android:id="@+id/btnCart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -198,13 +197,13 @@
                         app:elevation="1dp"
                         app:fabSize="normal"
                         app:rippleColor="@color/purpledarkmain"
-                        app:srcCompat="@drawable/ic_notifications" />
+                        app:srcCompat="@drawable/ic_cart" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="Notifications"
+                        android:text="Cart"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
 
                 </LinearLayout>
