@@ -110,7 +110,7 @@
             android:background="@drawable/custom_edittext"
             android:paddingStart="10dp"
             android:fontFamily="@font/gilroylight"
-            android:inputType="text"
+            android:inputType="textPersonName"
             android:gravity="center"
             android:hint="Duplex Home" />
 

@@ -9,16 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.suiterentals.MainActivity;
-import com.example.suiterentals.Model.FirebaseData;
 import com.example.suiterentals.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,7 +38,7 @@ public class ProfileFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
-//
+
     @Override
     public void onStart() {
         super.onStart();
@@ -112,10 +109,18 @@ public class ProfileFragment extends Fragment {
         //TODO: not getting name from database
         //Log.d("TAG", "DB name: "+ users.getDisplayName());
         //Toast.makeText(getActivity(), "Logging out user: \n DB: "+users.getDisplayName() + "\n SP : "+ svedmail, Toast.LENGTH_SHORT).show();
-        mauth.signOut();
-        editoor.clear();
-        editoor.apply();
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        startActivity(intent);
+
+        try {
+            mauth.signOut();
+            editoor.clear();
+            editoor.apply();
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+        }catch (NullPointerException e)
+        {
+            Toast.makeText(contexxt, "Profile logout error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
