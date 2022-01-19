@@ -82,16 +82,11 @@ public class loginsMainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(loginsMainActivity.this, "Successfully logged in!", Toast.LENGTH_SHORT).show();
-                        FirebaseAuth mAuth;
-                        FirebaseUser User;
-                        mAuth = FirebaseAuth.getInstance();
-                        User = mAuth.getCurrentUser();
-                        Toast.makeText(getApplicationContext(), "uid: "+User.getUid(), Toast.LENGTH_SHORT).show();
                         //FirebaseData fb = new FirebaseData(User.getUid(),User.getDisplayName(),User.getEmail());
-                        sharedPreferences = getSharedPreferences("userloginerror",0);
-                        SharedPreferences.Editor editoor = sharedPreferences.edit();
-                        editoor.clear();
-                        editoor.apply();
+//                        sharedPreferences = getSharedPreferences("userloginerror",0);
+//                        SharedPreferences.Editor editoor = sharedPreferences.edit();
+//                        editoor.clear();
+//                        editoor.apply();
                         progressDialog.cancel();
                         startActivity(new Intent(loginsMainActivity.this,HomeActivity.class));
                     }
@@ -101,10 +96,10 @@ public class loginsMainActivity extends AppCompatActivity {
                         progressDialog.cancel();
                         Toast.makeText(loginsMainActivity.this, "Failed to login with : "+e.getMessage(), Toast.LENGTH_SHORT).show();
                         //logging in even after error because the email in shared preference is present so applying SP as a check
-                        sharedpreferences = getSharedPreferences("userloginerror", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editoor = sharedpreferences.edit();
-                        editoor.putString("error",e.getMessage());
-                        editoor.apply();
+//                        sharedpreferences = getSharedPreferences("userloginerror", Context.MODE_PRIVATE);
+//                        SharedPreferences.Editor editoor = sharedpreferences.edit();
+//                        editoor.putString("error",e.getMessage());
+//                        editoor.apply();
                     }
                 });
             }catch (NullPointerException e)

@@ -19,13 +19,16 @@ import com.example.suiterentals.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class HomeActivity extends AppCompatActivity {
 
-//    FirebaseAuth mauth;
-//    SharedPreferences sp,sharedPreferences;
-//    FirebaseUser user;
-//
+    FirebaseAuth mauth;
+    FirebaseUser user;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    SharedPreferences sharedPreferences;
+    public SharedPreferences.Editor editor;
+    public String uid,fbemail,spemail;
 //    @Override
 //    protected void onStart() {
 //        super.onStart();
@@ -43,6 +46,19 @@ public class HomeActivity extends AppCompatActivity {
 //            finish();
 //        }
 //    }
+
+    @Override
+    protected void onStart() {
+        mauth =FirebaseAuth.getInstance();
+        user = mauth.getCurrentUser();
+        uid = user.getUid();
+        fbemail = user.getEmail();
+        sharedPreferences = getApplicationContext().getSharedPreferences("loggedinuser",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        spemail= sharedPreferences.getString("email","");
+        Toast.makeText(getApplicationContext(), "User ID: "+uid, Toast.LENGTH_SHORT).show();
+        super.onStart();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +81,27 @@ public class HomeActivity extends AppCompatActivity {
 
 
     }
+
+    public FirebaseAuth getMauth() {
+        return mauth;
+    }
+
+    public FirebaseFirestore getDb() {
+        return db;
+    }
+//    public FirebaseUser getUser() {
+//        return user;
+//    }
 //
+//    public SharedPreferences getSharedPreferences() {
+//        return sharedPreferences;
+//    }
+
+    public SharedPreferences.Editor getEditor() {
+        return editor;
+    }
+
+    //
 //
 //    public void logoutDetails()
 //    {

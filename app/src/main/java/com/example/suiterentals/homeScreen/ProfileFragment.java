@@ -25,25 +25,18 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProfileFragment extends Fragment {
 
     View view;
-    FirebaseAuth mauth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+//    FirebaseAuth mauth;
     Context contexxt;
-    FirebaseUser users,mCurrentUser;
+//    FirebaseUser users;
     TextView txtname,txtemail;
-    String uid,naame,eemail;
+//    String uid,eemail;
     FloatingActionButton profile,dashboard,location,cart,feeds,logout;
-    SharedPreferences sharedPreferences;
+//    SharedPreferences sharedPreferences;
+    HomeActivity homeActivity;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mauth = FirebaseAuth.getInstance();
-        users = mauth.getCurrentUser();
     }
 
     @Override
@@ -63,19 +56,20 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        FirebaseAuth auth;
-        auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
-        uid = user.getUid();
-        eemail = user.getEmail();
+//        FirebaseAuth auth;
+//        auth = FirebaseAuth.getInstance();
+//        FirebaseUser user = auth.getCurrentUser();
+//        uid = user.getUid();
+//        eemail = user.getEmail();
         //Toast.makeText(contexxt, "id after getting : "+uid, Toast.LENGTH_SHORT).show();
 //        String name = user.getDisplayName();
 //        String email = user.getEmail();
 //        if(!name.isEmpty()){
+        homeActivity = (HomeActivity) getActivity();
             txtname = view.findViewById(R.id.txtName);
             txtemail = view.findViewById(R.id.txtEmail);
-            txtname.setText(eemail);
-            txtemail.setText(uid);
+            txtname.setText(homeActivity.fbemail);
+            txtemail.setText(homeActivity.uid);
 //        }
 //        else{
 //            Toast.makeText(getActivity(), "Getting No Data", Toast.LENGTH_SHORT).show();
@@ -102,18 +96,18 @@ public class ProfileFragment extends Fragment {
 
     public void logoutDetails()
     {
-        sharedPreferences = contexxt.getSharedPreferences("loggedinuser",0);
-        SharedPreferences.Editor editoor = sharedPreferences.edit();
-        String svedmail= sharedPreferences.getString("email",null);
+        //sharedPreferences = contexxt.getSharedPreferences("loggedinuser",0);
+        //SharedPreferences.Editor editoor = sharedPreferences.edit();
+        //String svedmail= sharedPreferences.getString("email",null);
         //No data is showing under DB session..
         //TODO: not getting name from database
         //Log.d("TAG", "DB name: "+ users.getDisplayName());
         //Toast.makeText(getActivity(), "Logging out user: \n DB: "+users.getDisplayName() + "\n SP : "+ svedmail, Toast.LENGTH_SHORT).show();
 
         try {
-            mauth.signOut();
-            editoor.clear();
-            editoor.apply();
+            homeActivity.getMauth().signOut();
+            homeActivity.getEditor().clear();
+            homeActivity.getEditor().apply();
             Intent intent = new Intent(getActivity(), MainActivity.class);
             startActivity(intent);
             getActivity().finish();

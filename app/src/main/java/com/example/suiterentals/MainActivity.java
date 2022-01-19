@@ -22,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
       //FirebaseUser user = mauth.getCurrentUser();
-
-
-
 //        if(user != null)
 //        {
 //            Toast.makeText(MainActivity.this, "Firebase user logged in is: "+user.getEmail(), Toast.LENGTH_SHORT).show();
@@ -54,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
             this.getSupportActionBar().hide();
 
             sharedPreferences = getSharedPreferences("loggedinuser", Context.MODE_PRIVATE);
-            sp = getSharedPreferences("userloginerror",Context.MODE_PRIVATE);
+            //sp = getSharedPreferences("userloginerror",Context.MODE_PRIVATE);
             //logging in even after error because the email in shared preference is present so applying SP as a check
-            String loginerror = sp.getString("error","");
+            //String loginerror = sp.getString("error","");
             String name = sharedPreferences.getString("email","");
             mauth = FirebaseAuth.getInstance();
             FirebaseUser user = mauth.getCurrentUser();

@@ -52,16 +52,17 @@ public class ProductFragment extends Fragment {
     Context contexxt;
     EditText latitude,longitude,suitetype,price,rooms,description,picture;
     Button btnuploadimage,btnsubmitproduct;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+//    FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseStorage storage;
-    FirebaseAuth auth;
-    FirebaseUser users;
+//    FirebaseAuth auth;
+//    FirebaseUser users;
     StorageReference storageReference;
-    String pictur,uid;
+    String pictur;
     Uri filepath;
     ProgressDialog progressDialog;
-    public  static final int Requestcode = 101;
-    Bitmap bitmap;
+    HomeActivity homeActivity;
+//    public  static final int Requestcode = 101;
+//    Bitmap bitmap;
 
     @Override
     public void onStart() {
@@ -85,9 +86,10 @@ public class ProductFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_product, container, false);
-        auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
-        uid = user.getUid();
+        homeActivity = (HomeActivity) getActivity();
+//        auth = FirebaseAuth.getInstance();
+//        FirebaseUser user = auth.getCurrentUser();
+        //uid = user.getUid();
         //Toast.makeText(contexxt, uid, Toast.LENGTH_SHORT).show();
         latitude= view.findViewById(R.id.editlatitude);
         longitude= view.findViewById(R.id.editLongitude);
@@ -156,7 +158,7 @@ public class ProductFragment extends Fragment {
                 } else{
                     //saving images in storage, then adding image url in hashmap then adding data of hashmap to DB.
                     storage = FirebaseStorage.getInstance();
-                    storageReference = storage.getReference(uid);
+                    storageReference = storage.getReference(homeActivity.uid);
                     StorageReference ref = storageReference.child("image/"+ UUID.randomUUID().toString());
                     ref.putFile(filepath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -173,7 +175,7 @@ public class ProductFragment extends Fragment {
                                     public void onComplete(@NonNull Task<Uri> task) {
                                         //Toast.makeText(contexxt, "pic:"+pictur, Toast.LENGTH_SHORT).show();
                                         Map<String,Object> taskMap = new HashMap<>();
-                                        taskMap.put("uid",uid);
+                                        taskMap.put("uid",homeActivity.uid);
                                         taskMap.put("longitude", longgitude);
                                         taskMap.put("latitude", latiitude);
                                         taskMap.put("suitetitle", suittype);
@@ -181,12 +183,12 @@ public class ProductFragment extends Fragment {
                                         taskMap.put("rooms", room);
                                         taskMap.put("description", desc);
                                         taskMap.put("address",pictur);
-                                        db.collection("Products").document(UUID.randomUUID().toString()).set(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        homeActivity.getDb().collection("Products").document(UUID.randomUUID().toString()).set(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
                                                     progressDialog.cancel();
-                                                    Toast.makeText(contexxt, "Successfully Added Data:\nid:"+user.getUid(), Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(contexxt, "Successfully Added Data:\nid:"+homeActivity.uid, Toast.LENGTH_SHORT).show();
 //                                                    Snackbar.make(getActivity().findViewById(android.R.id.content),
 //                                                            "Successfully Added Data:\nid:"+user.getUid(), Snackbar.LENGTH_LONG).show();
                                                     latitude.setText("");
@@ -231,12 +233,10 @@ public class ProductFragment extends Fragment {
 
         if (resultCode == RESULT_OK) {
             try {
-                auth = FirebaseAuth.getInstance();
-                users = auth.getCurrentUser();
                 final Uri imageUri = data.getData();
                 final InputStream imageStream = getActivity().getApplicationContext().getContentResolver().openInputStream(imageUri);
-                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                bitmap = BitmapFactory.decodeStream(imageStream);
+                //final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                //bitmap = BitmapFactory.decodeStream(imageStream);
                 //image_view.setImageBitmap(selectedImage);
                 //path
                 filepath = data.getData();

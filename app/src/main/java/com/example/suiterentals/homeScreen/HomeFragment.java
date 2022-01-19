@@ -26,9 +26,7 @@ public class HomeFragment extends Fragment {
     View view;
     Context contexxt;
     Button btnrecoment,btnrelease,btntoprated;
-    FirebaseAuth mauth;
-    SharedPreferences sharedPreferences;
-    FirebaseUser user;
+    HomeActivity homeActivity;
 
 
     @Override
@@ -47,12 +45,24 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view =inflater.inflate(R.layout.fragment_home, container, false);
-
+        homeActivity = (HomeActivity) getActivity();
         btnrelease = view.findViewById(R.id.btnShowRelease);
         btnrecoment = view.findViewById(R.id.btnShowRecomended);
         btntoprated = view.findViewById(R.id.btnShowTopRated);
 
         btnrelease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(contexxt, ShowDataMainActivity.class));
+            }
+        });
+        btnrecoment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(contexxt, ShowDataMainActivity.class));
+            }
+        });
+        btntoprated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(contexxt, ShowDataMainActivity.class));
