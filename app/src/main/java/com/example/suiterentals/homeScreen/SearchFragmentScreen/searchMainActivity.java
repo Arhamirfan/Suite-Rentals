@@ -45,7 +45,7 @@ public class searchMainActivity extends AppCompatActivity {
         pd.show();
 
         getbytitle(toSearchName);
-        adapter = new secondAdapter(suiteListtype2);
+        adapter = new secondAdapter(suiteListtype2,getApplicationContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         myrecyclerview.setLayoutManager(layoutManager);
         myrecyclerview.setItemAnimator(new DefaultItemAnimator());

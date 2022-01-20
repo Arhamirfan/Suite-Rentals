@@ -58,7 +58,7 @@ public class ShowDataMainActivity extends AppCompatActivity {
         //TODO: save data in list
 //        adapter = new myAdapter(productList,imagelist,getApplicationContext());
         //adapter = new myAdapter(productList);
-        adapter = new myAdapter(suiteList);
+        adapter = new myAdapter(suiteList,getApplicationContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         myrecyclerview.setLayoutManager(layoutManager);
         myrecyclerview.setItemAnimator(new DefaultItemAnimator());

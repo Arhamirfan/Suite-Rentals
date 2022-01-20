@@ -106,7 +106,7 @@ public class HomeFragment extends Fragment {
         btnrelease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(contexxt, ShowDataMainActivity.class);
+                Intent intent =new Intent(getActivity().getApplicationContext(), ShowDataMainActivity.class);
                 //intent.putExtra("productlist",homeActivity.getProductList());
                 startActivity(intent);
             }

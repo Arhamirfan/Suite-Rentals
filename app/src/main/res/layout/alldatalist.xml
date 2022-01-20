@@ -98,7 +98,16 @@
 
 
             </LinearLayout>
+            <Button
+                android:id="@+id/btndetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:text="DETAILS"
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
 
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

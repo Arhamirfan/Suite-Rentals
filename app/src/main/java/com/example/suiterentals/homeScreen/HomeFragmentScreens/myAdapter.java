@@ -1,9 +1,11 @@
 package com.example.suiterentals.homeScreen.HomeFragmentScreens;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,6 +62,24 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder>{
         holder.latitude.setText(suite.getLatitude()+",");
         holder.longitude.setText(suite.getLongitude());
         holder.price.setText("$ "+ suite.getPrice());
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,BookProductMainActivity.class);
+                intent.putExtra("productlist",suite);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
+//        holder.btndetail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(context,BookProductMainActivity.class);
+//                intent.putExtra("productlist",suite);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
+//            }
+//        });
     }
 
     @Override
@@ -70,6 +90,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder>{
     public class myViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
         TextView title,latitude,longitude,price;
+        Button btndetail;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.rvtitle);
@@ -77,6 +98,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder>{
             latitude= itemView.findViewById(R.id.rvlatitide);
             longitude= itemView.findViewById(R.id.rvlongitude);
             price= itemView.findViewById(R.id.rvprice);
+            btndetail = itemView.findViewById(R.id.btndetails);
         }
     }
 }
