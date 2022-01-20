@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable-v24/btn_rounded_white_green.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable-v24/ic_data_usage.xml" value="0.22135416666666666" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/btn_rounded_white_green.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/buttonstyle.xml" value="0.21770833333333334" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/custom_edittext.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/gradientbackground.xml" value="0.21770833333333334" />
@@ -13,16 +15,19 @@
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_notifications.xml" value="0.22135416666666666" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_whatshot.xml" value="0.22135416666666666" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/shape_circle.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_create_account.xml" value="0.22" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_logins_main.xml" value="0.22" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_profile_main.xml" value="0.25" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_search_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_show_data_main.xml" value="0.25" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/alldatalist.xml" value="0.25" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/fragment_product.xml" value="0.22" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
-        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/fragment_search.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
       </map>

@@ -15,7 +15,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.suiterentals.Model.Product;
-import com.example.suiterentals.Model.productImages;
 import com.example.suiterentals.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -35,11 +34,13 @@ public class ShowDataMainActivity extends AppCompatActivity {
 
     RecyclerView myrecyclerview;
     ArrayList<Product> productList = new ArrayList<Product>();
-//    ArrayList<productImages> imagelist = new ArrayList<productImages>();
-    ArrayList<String> imagelist;
     myAdapter adapter;
     ProgressDialog pd;
+    ArrayList<Product> myListofProducts = new ArrayList<Product>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class ShowDataMainActivity extends AppCompatActivity {
 
         pd = new ProgressDialog(this);
         myrecyclerview = findViewById(R.id.recyclerview);
-        imagelist = new ArrayList<>();
+        //imagelist = new ArrayList<>();
 //        Product product;
 //        product = new Product("123","Home","This is testing","401","0","401","401","nothing");
 //        productList.add(product);
@@ -60,18 +61,24 @@ public class ShowDataMainActivity extends AppCompatActivity {
         pd.show();
         //TODO: Get data from Database
         //getData();
+        //myListofProducts = (ArrayList<Product>) getIntent().getSerializableExtra("productlist");
         getListItems();
+        //pd.cancel();
         //getListImages();
         //TODO: save data in list
 //        adapter = new myAdapter(productList,imagelist,getApplicationContext());
+        //adapter = new myAdapter(productList);
         adapter = new myAdapter(productList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         myrecyclerview.setLayoutManager(layoutManager);
         myrecyclerview.setItemAnimator(new DefaultItemAnimator());
+        //myrecyclerview.setAdapter(adapter);
+
 
     }
 
-//    private void getData() {
+
+    //    private void getData() {
 //        //get data and save as:
 ////        Product product;
 ////        product = new Product("","","","","","","","");
@@ -95,10 +102,12 @@ public class ShowDataMainActivity extends AppCompatActivity {
 //    }
 
     private void getListItems() {
+        productList.clear();
         db.collection("Products").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        productList.clear();
                         if (queryDocumentSnapshots.isEmpty()) {
                             Toast.makeText(getApplicationContext(), "Empty List of Products.", Toast.LENGTH_SHORT).show();
                         }

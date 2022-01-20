@@ -112,20 +112,21 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/tv1title"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLines="1"
                                     android:singleLine="true"
                                     android:textSize="15sp"
                                     android:fontFamily="@font/gilroybold"
-                                    android:text="Mauris sagittis non elit"
                                     android:textColor="@color/grey_90" />
 
                                 <TextView
+                                    android:id="@+id/tv1location"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/gilroylight"
-                                    android:text="Kodaline" />
+                                     />
 
                             </LinearLayout>
 
@@ -170,20 +171,22 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/tv2title"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLines="1"
                                     android:singleLine="true"
-                                    android:text="Aliquam"
+                                    android:text=""
                                     android:textSize="15sp"
                                     android:fontFamily="@font/gilroybold"
                                     android:textColor="@color/grey_90" />
 
                                 <TextView
+                                    android:id="@+id/tv2location"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/gilroylight"
-                                    android:text="One Republic" />
+                                    android:text="" />
 
                             </LinearLayout>
 
@@ -252,12 +255,12 @@
                             android:scaleType="centerCrop" />
 
                         <TextView
+                            android:id="@+id/tv3title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
                             android:padding="@dimen/spacing_large"
                             android:singleLine="true"
-                            android:text="Curabitur tempus"
                             android:textSize="15sp"
                             android:fontFamily="@font/gilroybold"
                             android:textColor="@color/grey_90" />
@@ -287,12 +290,12 @@
                             android:scaleType="centerCrop" />
 
                         <TextView
+                            android:id="@+id/tv4title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
                             android:padding="@dimen/spacing_large"
                             android:singleLine="true"
-                            android:text="Quisque"
                             android:textSize="15sp"
                             android:fontFamily="@font/gilroybold"
                             android:textColor="@color/grey_90" />
@@ -327,7 +330,7 @@
                             android:maxLines="1"
                             android:padding="@dimen/spacing_large"
                             android:singleLine="true"
-                            android:text="Aliquam ac elit"
+                            android:id="@+id/tv5title"
                             android:textSize="15sp"
                             android:fontFamily="@font/gilroybold"
                             android:textColor="@color/grey_90" />
@@ -409,11 +412,11 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/tv6title"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLines="1"
                                     android:singleLine="true"
-                                    android:text="Suspendisse ornare"
                                     android:textSize="15sp"
                                     android:fontFamily="@font/gilroybold"
                                     android:textColor="@color/grey_90" />
@@ -422,7 +425,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/gilroylight"
-                                    android:text="Adipiscing" />
+                                    android:id="@+id/tv6location" />
 
                             </LinearLayout>
 
@@ -466,11 +469,11 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/tv7title"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:maxLines="1"
                                     android:singleLine="true"
-                                    android:text="Placerat vel ipsum"
                                     android:textSize="15sp"
                                     android:fontFamily="@font/gilroybold"
                                     android:textColor="@color/grey_90" />
@@ -479,7 +482,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/gilroylight"
-                                    android:text="amet rutrum" />
+                                    android:id="@+id/tv7location" />
 
                             </LinearLayout>
 

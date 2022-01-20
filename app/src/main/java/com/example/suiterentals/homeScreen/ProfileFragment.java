@@ -1,12 +1,22 @@
 package com.example.suiterentals.homeScreen;
 
+import static androidx.core.location.LocationManagerCompat.isLocationEnabled;
+
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -17,6 +27,8 @@ import android.widget.Toast;
 
 import com.example.suiterentals.MainActivity;
 import com.example.suiterentals.R;
+import com.example.suiterentals.homeScreen.HomeFragmentScreens.ShowDataMainActivity;
+import com.example.suiterentals.homeScreen.profileFragmentScreens.ProfileMainActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -83,7 +95,31 @@ public class ProfileFragment extends Fragment {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "This is profile", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(contexxt, ProfileMainActivity.class);
+                intent.putExtra("email",homeActivity.fbemail);
+                intent.putExtra("uid",homeActivity.uid);
+                startActivity(intent);
+                //Toast.makeText(getActivity(), "This is profile", Toast.LENGTH_SHORT).show();
+            }
+        });
+        dashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(contexxt, ShowDataMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(contexxt, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                    Toast.makeText(contexxt, "Granted Permission.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(contexxt, "Permission already Granted..", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
@@ -117,4 +153,6 @@ public class ProfileFragment extends Fragment {
         }
 
     }
+
+
 }

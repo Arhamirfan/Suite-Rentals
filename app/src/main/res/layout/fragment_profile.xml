@@ -59,19 +59,13 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="@dimen/spacing_large"
-                    android:layout_height="@dimen/spacing_large"
-                    android:layout_marginEnd="@dimen/spacing_medium"
-                    android:layout_marginRight="@dimen/spacing_medium"
-                    app:srcCompat="@drawable/ic_person"
-                    app:tint="@color/grey_40" />
+
 
                 <TextView
                     android:id="@+id/txtEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email Here"
+                    android:text="UID"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textColor="@color/grey_40" />
             </LinearLayout>

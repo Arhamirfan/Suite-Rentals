@@ -1,5 +1,6 @@
 package com.example.suiterentals;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -9,11 +10,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.suiterentals.Model.Product;
 import com.example.suiterentals.homeScreen.HomeActivity;
 import com.example.suiterentals.loginScreens.loginsMainActivity;
 import com.firebase.client.Firebase;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mauth;
@@ -21,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
       //FirebaseUser user = mauth.getCurrentUser();
 //        if(user != null)
 //        {
@@ -62,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
             if(!uid.isEmpty())
             {
                 Toast.makeText(this, "user session: SB:"+name+ "\nDB:"+ uid, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                Intent intent =new Intent(MainActivity.this,HomeActivity.class);
+
+                startActivity(intent);
                 finish();
 //            if(!(loginerror.isEmpty()))
 //            {
@@ -93,4 +105,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
 }

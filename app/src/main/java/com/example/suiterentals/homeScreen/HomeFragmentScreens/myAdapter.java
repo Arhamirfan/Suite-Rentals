@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.suiterentals.Model.Product;
-import com.example.suiterentals.Model.productImages;
 import com.example.suiterentals.R;
 
 import java.io.IOException;

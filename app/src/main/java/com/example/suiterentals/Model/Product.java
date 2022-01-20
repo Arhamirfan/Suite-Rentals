@@ -1,6 +1,9 @@
 package com.example.suiterentals.Model;
 
-public class Product {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Product implements Serializable {
     String uid,Suitetitle,description,price,rooms,latitude,longitude,piclocation,address;
 
     public Product() {
