@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -149,7 +150,7 @@ public class ProfileFragment extends Fragment {
             getActivity().finish();
         }catch (NullPointerException e)
         {
-            Toast.makeText(contexxt, "Profile logout error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.d("TAG", "logoutDetails Error: "+e.getMessage());
         }
 
     }

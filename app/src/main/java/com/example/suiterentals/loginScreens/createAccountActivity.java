@@ -89,7 +89,6 @@ public class createAccountActivity extends AppCompatActivity {
                         user.put("id",uid);
                         user.put("name", namee);
                         user.put("email", emmail);
-                        user.put("password", pass);
                         user.put("address", adress);
                         db.collection("users").document(uid).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override

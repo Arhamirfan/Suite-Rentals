@@ -7,25 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
-import com.example.suiterentals.Model.Product;
+import com.example.suiterentals.Model.Suite;
 import com.example.suiterentals.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.ListResult;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +23,10 @@ import java.util.List;
 public class ShowDataMainActivity extends AppCompatActivity {
 
     RecyclerView myrecyclerview;
-    ArrayList<Product> productList = new ArrayList<Product>();
+    ArrayList<Suite> suiteList = new ArrayList<Suite>();
     myAdapter adapter;
     ProgressDialog pd;
-    ArrayList<Product> myListofProducts = new ArrayList<Product>();
+    ArrayList<Suite> myListofSuites = new ArrayList<Suite>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
@@ -55,20 +45,20 @@ public class ShowDataMainActivity extends AppCompatActivity {
 //        productList.add(product);
 //        product = new Product("456","Suite","This is testing","401","0","401","401","nothing");
 //        productList.add(product);
-//        imagelist.add("https://firebasestorage.googleapis.com/v0/b/suite-rentals.appspot.com/o/allproducts%2F36162407-e4db-4f2a-b628-d4fd514e3022?alt=media&token=a7c59843-157f-42bc-b224-37021daf8859");
-//        imagelist.add("https://firebasestorage.googleapis.com/v0/b/suite-rentals.appspot.com/o/allproducts%2F36162407-e4db-4f2a-b628-d4fd514e3022?alt=media&token=a7c59843-157f-42bc-b224-37021daf8859");
+//        imagelist.add("https://firebasestorage.googleapis.com/v0/b/suite-rentals.appspot.com/o/allSuite%2F36162407-e4db-4f2a-b628-d4fd514e3022?alt=media&token=a7c59843-157f-42bc-b224-37021daf8859");
+//        imagelist.add("https://firebasestorage.googleapis.com/v0/b/suite-rentals.appspot.com/o/allSuite%2F36162407-e4db-4f2a-b628-d4fd514e3022?alt=media&token=a7c59843-157f-42bc-b224-37021daf8859");
         pd.setTitle("Getting Data");
         pd.show();
         //TODO: Get data from Database
         //getData();
-        //myListofProducts = (ArrayList<Product>) getIntent().getSerializableExtra("productlist");
+        //myListofSuite = (ArrayList<Product>) getIntent().getSerializableExtra("productlist");
         getListItems();
         //pd.cancel();
         //getListImages();
         //TODO: save data in list
 //        adapter = new myAdapter(productList,imagelist,getApplicationContext());
         //adapter = new myAdapter(productList);
-        adapter = new myAdapter(productList);
+        adapter = new myAdapter(suiteList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         myrecyclerview.setLayoutManager(layoutManager);
         myrecyclerview.setItemAnimator(new DefaultItemAnimator());
@@ -84,7 +74,7 @@ public class ShowDataMainActivity extends AppCompatActivity {
 ////        product = new Product("","","","","","","","");
 ////        productList.add(product);
 ////
-//        db.collection("Products")
+//        db.collection("Suite")
 //                .get()
 //                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 //                    @Override
@@ -102,18 +92,18 @@ public class ShowDataMainActivity extends AppCompatActivity {
 //    }
 
     private void getListItems() {
-        productList.clear();
-        db.collection("Products").get()
+        suiteList.clear();
+        db.collection("Suite").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        productList.clear();
+                        suiteList.clear();
                         if (queryDocumentSnapshots.isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Empty List of Products.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Empty List of Suite.", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            List<Product> types = queryDocumentSnapshots.toObjects(Product.class);
-                            productList.addAll(types);
+                            List<Suite> types = queryDocumentSnapshots.toObjects(Suite.class);
+                            suiteList.addAll(types);
                             myrecyclerview.setAdapter(adapter);
                             pd.cancel();
                         }
@@ -128,7 +118,7 @@ public class ShowDataMainActivity extends AppCompatActivity {
 
 //    private void getListImages()
 //    {
-//        StorageReference refer = FirebaseStorage.getInstance().getReference("allproducts/");
+//        StorageReference refer = FirebaseStorage.getInstance().getReference("allSuite/");
 //
 //        refer.listAll().addOnSuccessListener(new OnSuccessListener<ListResult>() {
 //            @Override

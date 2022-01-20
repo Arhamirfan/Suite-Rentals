@@ -1,8 +1,6 @@
 package com.example.suiterentals.homeScreen.HomeFragmentScreens;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,26 +10,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.suiterentals.Model.Product;
+import com.example.suiterentals.Model.Suite;
 import com.example.suiterentals.R;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder>{
 
-    private ArrayList<Product> productlist;
+    private ArrayList<Suite> suitelist;
     private Context context;
 
-    public myAdapter(ArrayList<Product> productlist,Context context) {
-        this.productlist = productlist;
+    public myAdapter(ArrayList<Suite> suitelist, Context context) {
+        this.suitelist = suitelist;
         this.context = context;
     }
 
-    public myAdapter(ArrayList<Product> productlist) {
-        this.productlist = productlist;
+    public myAdapter(ArrayList<Suite> suitelist) {
+        this.suitelist = suitelist;
     }
 
     @NonNull
@@ -43,7 +38,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-        Product product = productlist.get(position);
+        Suite suite = suitelist.get(position);
         //TODO: get Bitmap image and set the image
         //Glide.with(holder.itemView.getContext()).load(imageList.get(position)).into(holder.imageView);
         //Glide.with(holder.itemView.getContext()).load(product.getAddress()).into(holder.imageView);
@@ -60,16 +55,16 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder>{
 //            e.printStackTrace();
 //        }
         //holder.imageView.setImageBitmap(mIcon_val);
-        new DownloadImageTask(holder.imageView).execute(product.getAddress());
-        holder.title.setText(product.getSuitetitle());
-        holder.latitude.setText(product.getLatitude()+",");
-        holder.longitude.setText(product.getLongitude());
-        holder.price.setText("$ "+product.getPrice());
+        new DownloadImageTask(holder.imageView).execute(suite.getAddress());
+        holder.title.setText(suite.getSuitetitle());
+        holder.latitude.setText(suite.getLatitude()+",");
+        holder.longitude.setText(suite.getLongitude());
+        holder.price.setText("$ "+ suite.getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return productlist.size();
+        return suitelist.size();
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder{

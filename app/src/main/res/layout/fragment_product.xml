@@ -160,6 +160,30 @@
             android:gravity="center"
             android:hint="2+ Rooms" />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/gilroybold"
+            android:textColor="@color/purpledarkmain"
+            android:textSize="@dimen/spacing_mlarge"
+            android:text="How other Contact?"
+            />
+
+        <EditText
+            android:id="@+id/editphone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_edittext"
+            android:fontFamily="@font/gilroylight"
+            android:paddingStart="10dp"
+            android:inputType="phone"
+            android:gravity="center"
+            android:hint="Phone Number" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -169,6 +193,7 @@
             android:textSize="@dimen/spacing_mlarge"
             android:text="Description?"
             />
+
 
         <EditText
             android:id="@+id/editdescription"

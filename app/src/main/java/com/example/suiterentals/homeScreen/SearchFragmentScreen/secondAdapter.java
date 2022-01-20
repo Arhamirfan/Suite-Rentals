@@ -9,19 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.suiterentals.Model.Product;
+import com.example.suiterentals.Model.Suite;
 import com.example.suiterentals.R;
 import com.example.suiterentals.homeScreen.HomeFragmentScreens.DownloadImageTask;
-import com.example.suiterentals.homeScreen.HomeFragmentScreens.myAdapter;
 
 import java.util.ArrayList;
 
 public class secondAdapter extends RecyclerView.Adapter<secondAdapter.myViewHolder2>{
 
-    private ArrayList<Product> productlist;
+    private ArrayList<Suite> suitelist;
 
-    public secondAdapter(ArrayList<Product> productlist) {
-        this.productlist = productlist;
+    public secondAdapter(ArrayList<Suite> suitelist) {
+        this.suitelist = suitelist;
     }
 
     @NonNull
@@ -33,17 +32,17 @@ public class secondAdapter extends RecyclerView.Adapter<secondAdapter.myViewHold
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder2 holder, int position) {
-        Product product = productlist.get(position);
-        new DownloadImageTask(holder.imageView).execute(product.getAddress());
-        holder.title.setText(product.getSuitetitle());
-        holder.latitude.setText(product.getLatitude()+",");
-        holder.longitude.setText(product.getLongitude());
-        holder.price.setText("$ "+product.getPrice());
+        Suite suite = suitelist.get(position);
+        new DownloadImageTask(holder.imageView).execute(suite.getAddress());
+        holder.title.setText(suite.getSuitetitle());
+        holder.latitude.setText(suite.getLatitude()+",");
+        holder.longitude.setText(suite.getLongitude());
+        holder.price.setText("$ "+ suite.getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return productlist.size();
+        return suitelist.size();
     }
 
     public class myViewHolder2 extends RecyclerView.ViewHolder{

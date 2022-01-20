@@ -13,20 +13,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.suiterentals.Model.Product;
 import com.example.suiterentals.R;
 import com.example.suiterentals.homeScreen.HomeActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.ktx.Firebase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class loginsMainActivity extends AppCompatActivity {
 
@@ -35,7 +27,6 @@ public class loginsMainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences,sharedpreferences;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     ProgressDialog progressDialog;
-    ArrayList<Product> productlist = new ArrayList<Product>();
 //    @Override
 //    protected void onStart() {
 //        super.onStart();

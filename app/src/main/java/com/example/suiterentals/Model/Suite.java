@@ -3,15 +3,14 @@ package com.example.suiterentals.Model;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class Product implements Serializable {
-    String uid,Suitetitle,description,price,rooms,latitude,longitude,piclocation,address;
+public class Suite implements Serializable {
+    String uid,Suitetitle,description,price,rooms,latitude,longitude,piclocation,address,phoneno;
 
-    public Product() {
+    public Suite() {
     }
 
 
-
-    public Product(String uid, String suitetitle, String description, String price, String rooms, String latitude, String longitude, String piclocation,String address) {
+    public Suite(String uid, String suitetitle, String description, String price, String rooms, String latitude, String longitude, String piclocation, String address, String phoneno) {
         this.uid = uid;
         Suitetitle = suitetitle;
         this.description = description;
@@ -21,8 +20,16 @@ public class Product implements Serializable {
         this.longitude = longitude;
         this.piclocation = piclocation;
         this.address = address;
+        this.phoneno = phoneno;
     }
 
+    public String getPhoneno() {
+        return phoneno;
+    }
+
+    public void setPhoneno(String phoneno) {
+        this.phoneno = phoneno;
+    }
     public String getAddress() {
         return address;
     }

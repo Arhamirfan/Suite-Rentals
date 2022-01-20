@@ -1,6 +1,5 @@
 package com.example.suiterentals.homeScreen.SearchFragmentScreen;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -9,13 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.example.suiterentals.Model.Product;
+import com.example.suiterentals.Model.Suite;
 import com.example.suiterentals.R;
-import com.example.suiterentals.homeScreen.HomeFragmentScreens.myAdapter;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,16 +18,13 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class searchMainActivity extends AppCompatActivity {
 
     RecyclerView myrecyclerview,rvtype2;
-    ArrayList<Product> productList = new ArrayList<Product>();
-    ArrayList<Product> finalproductlist = new ArrayList<Product>();
-    ArrayList<Product> productListtype2 = new ArrayList<Product>();
+    ArrayList<Suite> suiteList = new ArrayList<Suite>();
+    ArrayList<Suite> finalproductlist = new ArrayList<Suite>();
+    ArrayList<Suite> suiteListtype2 = new ArrayList<Suite>();
     secondAdapter adapter,adaptertype2;
     ProgressDialog pd;
     String toSearchName;
@@ -53,7 +45,7 @@ public class searchMainActivity extends AppCompatActivity {
         pd.show();
 
         getbytitle(toSearchName);
-        adapter = new secondAdapter(productListtype2);
+        adapter = new secondAdapter(suiteListtype2);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         myrecyclerview.setLayoutManager(layoutManager);
         myrecyclerview.setItemAnimator(new DefaultItemAnimator());
@@ -64,8 +56,8 @@ public class searchMainActivity extends AppCompatActivity {
 
     //type 2: get by title
     private void getbytitle(String searchitem) {
-        productListtype2.clear();
-        db.collection("Products").whereEqualTo("suitetitle", searchitem)
+        suiteListtype2.clear();
+        db.collection("Suite").whereEqualTo("suitetitle", searchitem)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot snapshots, @Nullable FirebaseFirestoreException e) {
@@ -76,10 +68,10 @@ public class searchMainActivity extends AppCompatActivity {
                         //listUsers = new ArrayList<User>();
 
                         for (DocumentSnapshot doc : snapshots) {
-                            Product product = doc.toObject(Product.class);
-                            productListtype2.add(product);
+                            Suite suite = doc.toObject(Suite.class);
+                            suiteListtype2.add(suite);
                         }
-                        if(productListtype2.isEmpty())
+                        if(suiteListtype2.isEmpty())
                         {
                             getbyprice(searchitem);
                         }else {
@@ -91,8 +83,8 @@ public class searchMainActivity extends AppCompatActivity {
     }
 
     private void getbyprice(String searchitem) {
-        productListtype2.clear();
-        db.collection("Products").whereEqualTo("price", searchitem)
+        suiteListtype2.clear();
+        db.collection("Suite").whereEqualTo("price", searchitem)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot snapshots, @Nullable FirebaseFirestoreException e) {
@@ -103,8 +95,8 @@ public class searchMainActivity extends AppCompatActivity {
                         //listUsers = new ArrayList<User>();
 
                         for (DocumentSnapshot doc : snapshots) {
-                            Product product = doc.toObject(Product.class);
-                            productListtype2.add(product);
+                            Suite suite = doc.toObject(Suite.class);
+                            suiteListtype2.add(suite);
                         }
                         myrecyclerview.setAdapter(adapter);
                         pd.cancel();

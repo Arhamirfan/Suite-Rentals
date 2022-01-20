@@ -50,7 +50,7 @@ public class ProductFragment extends Fragment {
 
     View view;
     Context contexxt;
-    EditText latitude,longitude,suitetype,price,rooms,description,picture;
+    EditText latitude,longitude,suitetype,price,rooms,description,picture,phone;
     Button btnuploadimage,btnsubmitproduct;
 //    FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseStorage storage;
@@ -96,6 +96,7 @@ public class ProductFragment extends Fragment {
         suitetype= view.findViewById(R.id.editsuitetype);
         price= view.findViewById(R.id.editPrice);
         rooms= view.findViewById(R.id.editrooms);
+        phone = view.findViewById(R.id.editphone);
         description= view.findViewById(R.id.editdescription);
         picture= view.findViewById(R.id.editPicturelocation);
         btnuploadimage= view.findViewById(R.id.btnPicture);
@@ -117,7 +118,7 @@ public class ProductFragment extends Fragment {
         btnsubmitproduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressDialog.setMessage("Adding Product..");
+                progressDialog.setMessage("Adding Suite..");
                 progressDialog.show();
                 String latiitude= latitude.getText().toString();
                 String longgitude= longitude.getText().toString();
@@ -126,6 +127,7 @@ public class ProductFragment extends Fragment {
                 String room= rooms.getText().toString();
                 String desc= description.getText().toString();
                 String pic= picture.getText().toString();
+                String phoneno = phone.getText().toString();
 
                 //Toast.makeText(contexxt, "uid:"+uid, Toast.LENGTH_SHORT).show();
 
@@ -150,6 +152,11 @@ public class ProductFragment extends Fragment {
                     progressDialog.cancel();
                     price.setError("price is invalid");
                     price.requestFocus();
+                }else if(TextUtils.isEmpty(phoneno))
+                {
+                    progressDialog.cancel();
+                    phone.setError("Phone is invalid");
+                    phone.requestFocus();
                 } else if(TextUtils.isEmpty(pic))
                 {
                     progressDialog.cancel();
@@ -183,12 +190,13 @@ public class ProductFragment extends Fragment {
                                         taskMap.put("rooms", room);
                                         taskMap.put("description", desc);
                                         taskMap.put("address",pictur);
-                                        homeActivity.getDb().collection("Products").document(UUID.randomUUID().toString()).set(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        taskMap.put("phoneno",phoneno);
+                                        homeActivity.getDb().collection("Suite").document(UUID.randomUUID().toString()).set(taskMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()){
                                                     progressDialog.cancel();
-                                                    Toast.makeText(contexxt, "Successfully Added Data:\nid:"+homeActivity.uid, Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(contexxt, "Successfully Added Data on:\nid:"+homeActivity.uid, Toast.LENGTH_SHORT).show();
 //                                                    Snackbar.make(getActivity().findViewById(android.R.id.content),
 //                                                            "Successfully Added Data:\nid:"+user.getUid(), Snackbar.LENGTH_LONG).show();
                                                     latitude.setText("");

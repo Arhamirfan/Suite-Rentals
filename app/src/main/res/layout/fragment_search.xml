@@ -4,12 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey_10"
     tools:context=".homeScreen.SearchFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <View
+            android:id="@+id/viewspacing"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvmaintext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello, i am SlaYeR.\nWhat would you like\nto search ?"
+            android:fontFamily="@font/gilroybold"
+            android:layout_margin="@dimen/spacing_mlarge"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/grey_80"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewspacing" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/search_bar"
@@ -17,12 +38,11 @@
             android:layout_height="@dimen/spacing_xxlarge"
             android:layout_margin="@dimen/spacing_mlarge"
             android:clipToPadding="false"
-            app:cardBackgroundColor="@color/grey_10"
             app:cardCornerRadius="25dp"
             app:cardElevation="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/tvmaintext">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,8 +68,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:hint="Search or type URL"
                     android:fontFamily="@font/gilroylight"
+                    android:hint="Search or type URL"
                     android:imeOptions="actionSearch"
                     android:maxLines="1"
                     android:singleLine="true">
@@ -73,8 +93,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:clickable="true"
-            android:tint="@color/bluelightmain"
-            app:backgroundTint="@color/grey_20"
+            android:tint="@color/black"
+            android:backgroundTint="@color/white"
             app:elevation="4dp"
             app:fabSize="normal"
             app:layout_constraintEnd_toEndOf="@+id/search_bar"

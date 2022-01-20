@@ -3,21 +3,16 @@ package com.example.suiterentals.homeScreen;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Toast;
 
-import com.example.suiterentals.MainActivity;
-import com.example.suiterentals.Model.Product;
+import com.example.suiterentals.Model.Suite;
 import com.example.suiterentals.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseAuth mauth;
     FirebaseUser user;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    ArrayList<Product> productList = new ArrayList<Product>();
+    ArrayList<Suite> suiteList = new ArrayList<Suite>();
     SharedPreferences sharedPreferences;
     public SharedPreferences.Editor editor;
     public String uid,fbemail,spemail;
@@ -73,7 +68,8 @@ public class HomeActivity extends AppCompatActivity {
         getListItems();
         //productList = (ArrayList<Product>) getIntent().getSerializableExtra("productlist");
         //pd.cancel();
-        Toast.makeText(getApplicationContext(), "User ID: "+uid, Toast.LENGTH_SHORT).show();
+        Log.d("TAG", "onStart HomeActivity: loggedin User: "+uid);
+        //Toast.makeText(getApplicationContext(), "User ID: "+uid, Toast.LENGTH_SHORT).show();
         super.onStart();
     }
 
@@ -108,8 +104,8 @@ public class HomeActivity extends AppCompatActivity {
         return db;
     }
 
-    public ArrayList<Product> getProductList() {
-        return productList;
+    public ArrayList<Suite> getProductList() {
+        return suiteList;
     }
     //    public FirebaseUser getUser() {
 //        return user;
@@ -125,16 +121,17 @@ public class HomeActivity extends AppCompatActivity {
 
 //Get Data From DB by this:
     public void getListItems() {
-        getDb().collection("Products").get()
+        getDb().collection("Suite").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         if (queryDocumentSnapshots.isEmpty()) {
-                            Toast.makeText(getApplicationContext(), "Empty List of Products.", Toast.LENGTH_SHORT).show();
+                            Log.d("TAG", "onStart HomeActivity: Empty DB list: "+uid);
+                            //Toast.makeText(getApplicationContext(), "Empty List of Suite.", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            List<Product> types = queryDocumentSnapshots.toObjects(Product.class);
-                            productList.addAll(types);
+                            List<Suite> types = queryDocumentSnapshots.toObjects(Suite.class);
+                            suiteList.addAll(types);
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {

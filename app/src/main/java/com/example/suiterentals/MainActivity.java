@@ -1,28 +1,20 @@
 package com.example.suiterentals;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.suiterentals.Model.Product;
 import com.example.suiterentals.homeScreen.HomeActivity;
 import com.example.suiterentals.loginScreens.loginsMainActivity;
 import com.firebase.client.Firebase;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mauth;
@@ -96,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         catch (NullPointerException e){
-            Toast.makeText(MainActivity.this, "error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.d("TAG", "onStart+logout: "+e.getMessage());
         }
     }
 
