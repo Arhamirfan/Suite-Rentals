@@ -43,6 +43,7 @@
     <color name="grey_90">#263238</color>
     <color name="grey_95">#1a1a1a</color>
     <color name="grey_100_">#0d0d0d</color>
-
+    <color name="blue_500">#2196F3</color>
     <color name="green_400">#66BB6A</color>
+
 </resources>

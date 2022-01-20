@@ -6,17 +6,21 @@
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable-v24/btn_rounded_white_green.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable-v24/ic_data_usage.xml" value="0.22135416666666666" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22135416666666666" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/btn_rounded_darker.xml" value="0.3828125" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/btn_rounded_grey_blue.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/btn_rounded_white_green.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/buttonstyle.xml" value="0.21770833333333334" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/custom_edittext.xml" value="0.3828125" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/fade_image_background.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/gradientbackground.xml" value="0.21770833333333334" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_data_usage.xml" value="0.22135416666666666" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_email.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_notifications.xml" value="0.22135416666666666" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/ic_whatshot.xml" value="0.22135416666666666" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/drawable/shape_circle.xml" value="0.3828125" />
-        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_book_product_main.xml" value="0.25" />
+        <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_book_product_main.xml" value="0.33" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_create_account.xml" value="0.22" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Android_Projects/SuiteRentals/app/src/main/res/layout/activity_logins_main.xml" value="0.22" />

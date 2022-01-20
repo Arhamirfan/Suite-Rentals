@@ -141,7 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_rounded_white_green"
-                    android:onClick="popKeywordClick"
+
                     android:text="2 Bed"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />
@@ -151,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_rounded_white_green"
-                    android:onClick="popKeywordClick"
+
                     android:text="Suite"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />
@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_rounded_white_green"
-                    android:onClick="popKeywordClick"
+
                     android:text="Mension"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />

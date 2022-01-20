@@ -94,8 +94,8 @@
                             android:id="@+id/image_1"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            app:srcCompat="@drawable/mainpic1"
-                            android:background="@color/grey_40"
+                            app:srcCompat="@drawable/mainpicc"
+                            android:background="@color/grey_10"
                             android:scaleType="centerCrop" />
 
                         <LinearLayout
@@ -153,8 +153,8 @@
                             android:id="@+id/image_2"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            android:background="@color/grey_40"
                             app:srcCompat="@drawable/mainpicc"
+                            android:background="@color/grey_10"
                             android:scaleType="centerCrop" />
 
                         <LinearLayout
@@ -250,8 +250,8 @@
                             android:id="@+id/image_3"
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:background="@color/grey_40"
                             app:srcCompat="@drawable/mainpicc"
+                            android:background="@color/grey_10"
                             android:scaleType="centerCrop" />
 
                         <TextView
@@ -285,8 +285,8 @@
                             android:id="@+id/image_4"
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            app:srcCompat="@drawable/mainpic3"
-                            android:background="@color/grey_40"
+                            app:srcCompat="@drawable/mainpicc"
+                            android:background="@color/grey_10"
                             android:scaleType="centerCrop" />
 
                         <TextView
@@ -320,8 +320,8 @@
                             android:id="@+id/image_5"
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:background="@color/grey_40"
-                            app:srcCompat="@drawable/mainpic1"
+                            android:background="@color/grey_10"
+                            app:srcCompat="@drawable/mainpicc"
                             android:scaleType="centerCrop" />
 
                         <TextView
@@ -394,8 +394,8 @@
                             android:id="@+id/image_6"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            android:background="@color/grey_40"
-                            app:srcCompat="@drawable/mainpic3"
+                            android:background="@color/grey_10"
+                            app:srcCompat="@drawable/mainpicc"
                             android:scaleType="centerCrop" />
 
                         <LinearLayout
@@ -451,7 +451,7 @@
                             android:id="@+id/image_7"
                             android:layout_width="match_parent"
                             android:layout_height="180dp"
-                            android:background="@color/grey_40"
+                            android:background="@color/grey_10"
                             app:srcCompat="@drawable/mainpicc"
                             android:scaleType="centerCrop" />
 

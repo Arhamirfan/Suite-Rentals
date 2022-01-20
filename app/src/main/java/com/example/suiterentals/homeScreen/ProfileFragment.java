@@ -43,7 +43,7 @@ public class ProfileFragment extends Fragment {
 //    FirebaseUser users;
     TextView txtname,txtemail;
 //    String uid,eemail;
-    FloatingActionButton profile,dashboard,location,cart,feeds,logout;
+    FloatingActionButton profile,dashboard,location,search,feeds,logout;
 //    SharedPreferences sharedPreferences;
     HomeActivity homeActivity;
     @Override
@@ -90,7 +90,7 @@ public class ProfileFragment extends Fragment {
         profile= (FloatingActionButton) view.findViewById(R.id.btnProfile);
         dashboard= (FloatingActionButton) view.findViewById(R.id.btnDashboard);
         location= (FloatingActionButton) view.findViewById(R.id.btnLocation);
-        cart= (FloatingActionButton) view.findViewById(R.id.btnCart);
+        search= (FloatingActionButton) view.findViewById(R.id.btnSearch);
         feeds= (FloatingActionButton) view.findViewById(R.id.btnFeed);
         logout = (FloatingActionButton) view.findViewById(R.id.btnLogout);
         profile.setOnClickListener(new View.OnClickListener() {

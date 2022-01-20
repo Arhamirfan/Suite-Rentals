@@ -2,6 +2,7 @@ package com.example.suiterentals.homeScreen.HomeFragmentScreens;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +58,8 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder>{
 //            e.printStackTrace();
 //        }
         //holder.imageView.setImageBitmap(mIcon_val);
-        new DownloadImageTask(holder.imageView).execute(suite.getAddress());
+        DownloadImageTask d = (DownloadImageTask) new DownloadImageTask(holder.imageView).execute(suite.getAddress());
+
         holder.title.setText(suite.getSuitetitle());
         holder.latitude.setText(suite.getLatitude()+",");
         holder.longitude.setText(suite.getLongitude());

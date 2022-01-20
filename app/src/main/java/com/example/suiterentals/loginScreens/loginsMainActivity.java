@@ -73,9 +73,7 @@ public class loginsMainActivity extends AppCompatActivity {
         else
         {
             try {
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("email",email);
-                editor.apply();
+
                 mauth=FirebaseAuth.getInstance();
                 mauth.signInWithEmailAndPassword(email,pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
@@ -86,6 +84,9 @@ public class loginsMainActivity extends AppCompatActivity {
 //                        SharedPreferences.Editor editoor = sharedPreferences.edit();
 //                        editoor.clear();
 //                        editoor.apply();
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("email",email);
+                        editor.apply();
                         progressDialog.cancel();
                         Intent intent =new Intent(loginsMainActivity.this,HomeActivity.class);
 
