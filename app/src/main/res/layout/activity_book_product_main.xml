@@ -8,29 +8,38 @@
     tools:context=".homeScreen.HomeFragmentScreens.BookProductMainActivity">
 
 
-        <ImageView
-            android:id="@+id/imgdetails"
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:scaleType="fitCenter"
-            android:background="@drawable/fade_image_background"
-            app:srcCompat="@drawable/mainpicc" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imgdetails"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="250dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:background="@drawable/fade_image_background"-->
+<!--            app:srcCompat="@drawable/mainpicc" />-->
 
-        <TextView
-            android:id="@+id/tvdtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:layout_margin="@dimen/spacing_mxlarge"
-            android:fontFamily="@font/gilroylight"
-            android:textSize="@dimen/spacing_mxxlarge"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@+id/imgdetails" />
+    <ImageView
+        android:id="@+id/ivdpic"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/mainpicc"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvdtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_mxlarge"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:fontFamily="@font/gilroybold"
+        android:textSize="@dimen/spacing_mxxlarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivdpic" />
 
         <TextView
             android:id="@+id/tvdcitylocation"
@@ -94,10 +103,11 @@
             android:layout_height="wrap_content"
             app:cornerRadius="30dp"
             android:backgroundTint="@color/grey_10"
+            android:textColor="@color/grey_80"
             android:text="2 Bed"
             android:fontFamily="@font/gilroylight"
             android:textAllCaps="false"
-            android:textColor="@color/grey_80" />
+ />
             <View
                 android:layout_width="10dp"
                 android:layout_height="0dp" />
@@ -127,19 +137,16 @@
         </com.google.android.flexbox.FlexboxLayout>
         </LinearLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+
+    <TextView
+        android:id="@+id/tvddescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_large"
-        app:layout_constraintTop_toBottomOf="@+id/lv2">
-        <TextView
-            android:id="@+id/tvddescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="description"
-            android:fontFamily="@font/gilroylight"
-            />
-    </androidx.core.widget.NestedScrollView>
+        android:fontFamily="@font/gilroylight"
+        android:text="description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv2" />
 
     <Button
         android:id="@+id/btndcall"
@@ -148,6 +155,7 @@
         android:text="Call to Number: _________"
         android:backgroundTint="@color/black"
         app:cornerRadius="30dp"
+        android:textColor="@color/white"
         android:layout_marginBottom="@dimen/spacing_large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

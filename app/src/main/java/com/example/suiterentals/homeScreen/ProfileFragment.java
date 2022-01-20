@@ -18,6 +18,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,7 +45,7 @@ public class ProfileFragment extends Fragment {
 //    FirebaseUser users;
     TextView txtname,txtemail;
 //    String uid,eemail;
-    FloatingActionButton profile,dashboard,location,search,feeds,logout;
+    FloatingActionButton profile,dashboard,location,cart,feeds,logout;
 //    SharedPreferences sharedPreferences;
     HomeActivity homeActivity;
     @Override
@@ -90,7 +92,7 @@ public class ProfileFragment extends Fragment {
         profile= (FloatingActionButton) view.findViewById(R.id.btnProfile);
         dashboard= (FloatingActionButton) view.findViewById(R.id.btnDashboard);
         location= (FloatingActionButton) view.findViewById(R.id.btnLocation);
-        search= (FloatingActionButton) view.findViewById(R.id.btnSearch);
+        cart= (FloatingActionButton) view.findViewById(R.id.btnSearch);
         feeds= (FloatingActionButton) view.findViewById(R.id.btnFeed);
         logout = (FloatingActionButton) view.findViewById(R.id.btnLogout);
         profile.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +110,16 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent =new Intent(contexxt, ShowDataMainActivity.class);
                 startActivity(intent);
+            }
+        });
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                SearchFragment llf = new SearchFragment();
+                ft.replace(R.id.fragment, llf);
+                ft.commit();
             }
         });
         location.setOnClickListener(new View.OnClickListener() {

@@ -64,6 +64,44 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        btnbeds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tosearch = "2";
+                Intent intent =new Intent(contexxt, searchMainActivity.class);
+                intent.putExtra("search",tosearch);
+                startActivity(intent);
+            }
+        });
+        btnsuite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tosearch = "1500";
+                Intent intent =new Intent(contexxt, searchMainActivity.class);
+                intent.putExtra("search",tosearch);
+                startActivity(intent);
+            }
+        });
+        btnlahore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tosearch = "lahore";
+                Intent intent =new Intent(contexxt, searchMainActivity.class);
+                intent.putExtra("search",tosearch);
+                startActivity(intent);
+            }
+        });
+        btnstars.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tosearch = "5";
+                Intent intent =new Intent(contexxt, searchMainActivity.class);
+                intent.putExtra("search",tosearch);
+                startActivity(intent);
+            }
+        });
+
+
         return view;
     }
 }

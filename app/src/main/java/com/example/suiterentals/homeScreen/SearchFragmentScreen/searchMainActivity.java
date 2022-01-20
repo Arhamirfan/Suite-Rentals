@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import com.example.suiterentals.Model.Suite;
 import com.example.suiterentals.R;
+import com.example.suiterentals.homeScreen.HomeFragmentScreens.myAdapter;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,7 +26,7 @@ public class searchMainActivity extends AppCompatActivity {
     ArrayList<Suite> suiteList = new ArrayList<Suite>();
     ArrayList<Suite> finalproductlist = new ArrayList<Suite>();
     ArrayList<Suite> suiteListtype2 = new ArrayList<Suite>();
-    secondAdapter adapter,adaptertype2;
+    myAdapter adapter;
     ProgressDialog pd;
     String toSearchName;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -45,7 +46,7 @@ public class searchMainActivity extends AppCompatActivity {
         pd.show();
 
         getbytitle(toSearchName);
-        adapter = new secondAdapter(suiteListtype2,getApplicationContext());
+        adapter = new myAdapter(suiteListtype2,getApplicationContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         myrecyclerview.setLayoutManager(layoutManager);
         myrecyclerview.setItemAnimator(new DefaultItemAnimator());

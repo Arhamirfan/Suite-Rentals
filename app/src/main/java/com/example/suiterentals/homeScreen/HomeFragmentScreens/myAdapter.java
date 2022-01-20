@@ -64,15 +64,15 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder>{
         holder.latitude.setText(suite.getLatitude()+",");
         holder.longitude.setText(suite.getLongitude());
         holder.price.setText("$ "+ suite.getPrice());
-//        holder.imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context,BookProductMainActivity.class);
-//                intent.putExtra("productlist",suite);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                context.startActivity(intent);
-//            }
-//        });
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,BookProductMainActivity.class);
+                intent.putExtra("productlist",suite);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
         holder.btndetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
