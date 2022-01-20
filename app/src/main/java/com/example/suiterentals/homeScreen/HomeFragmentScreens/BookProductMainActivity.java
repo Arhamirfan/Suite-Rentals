@@ -20,11 +20,11 @@ public class BookProductMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_product_main);
 
-        //suite = (Suite) getIntent().getSerializableExtra("productlist");
+        suite = (Suite) getIntent().getSerializableExtra("productlist");
         tv1 = findViewById(R.id.tvd1);
-        tv2.findViewById(R.id.tvd2);
+        tv2=findViewById(R.id.tvd2);
 
-//        tv1.setText(suite.getSuitetitle());
-//        tv2.setText(suite.getPrice());
+        tv1.setText(suite.getSuitetitle());
+        tv2.setText(suite.getPrice());
     }
 }
