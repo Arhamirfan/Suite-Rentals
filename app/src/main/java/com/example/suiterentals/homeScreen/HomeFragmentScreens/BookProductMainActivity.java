@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.suiterentals.Model.Suite;
 import com.example.suiterentals.R;
+import com.example.suiterentals.homeScreen.profileFragmentScreens.LocationMainActivity;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class BookProductMainActivity extends AppCompatActivity {
 
     Suite suite = new Suite();
     TextView tv1,tv2,tvtitle,tvcity,tvprice,tvdescription,tvphoneno;
-    Button btncall;
+    Button btncall,btnlocation;
     ImageView img_details;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,16 @@ public class BookProductMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:"+getphone));
+                startActivity(intent);
+            }
+        });
+        btnlocation = findViewById(R.id.btndloc);
+        btnlocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BookProductMainActivity.this, LocationMainActivity.class);
+                intent.putExtra("latitude",suite.getLatitude());
+                intent.putExtra("longitude",suite.getLongitude());
                 startActivity(intent);
             }
         });

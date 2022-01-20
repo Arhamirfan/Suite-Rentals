@@ -125,10 +125,12 @@
                 android:layout_width="10dp"
                 android:layout_height="0dp" />
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/btndloc"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="Good Location"
             android:fontFamily="@font/gilroylight"
+            android:drawableLeft="@drawable/ic_location"
+            android:drawableTint="@color/black"
             android:textAllCaps="false"
             app:cornerRadius="30dp"
             android:backgroundTint="@color/grey_10"
@@ -148,18 +150,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lv2" />
 
-    <Button
-        android:id="@+id/btndcall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Call to Number: _________"
-        android:backgroundTint="@color/black"
-        app:cornerRadius="30dp"
-        android:textColor="@color/white"
-        android:layout_marginBottom="@dimen/spacing_large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btndcall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_call"
+            android:drawableTint="@color/white"
+            android:text="Call"
+            android:backgroundTint="@color/black"
+            app:cornerRadius="30dp"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/spacing_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_margin="@dimen/spacing_large"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
+
+<!--        <View-->
+<!--            android:layout_width="10dp"-->
+<!--            android:layout_height="0dp" />-->
+<!--        <Button-->
+<!--            android:id="@+id/btndloc"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:drawableLeft="@drawable/ic_call"-->
+<!--            android:drawableTint="@color/white"-->
+<!--            android:text="Location"-->
+<!--            android:backgroundTint="@color/black"-->
+<!--            app:cornerRadius="30dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_marginBottom="@dimen/spacing_large"-->
+<!--            />-->
+<!--    </LinearLayout>-->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
