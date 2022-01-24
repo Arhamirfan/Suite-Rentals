@@ -37,58 +37,60 @@ public class LocationMainActivity extends AppCompatActivity {
     SupportMapFragment smf;
     FusedLocationProviderClient client;
     private GoogleMap mMap;
-    Double longit,latit;
-    String lon,lat;
+    Double longit, latit;
+    String lon, lat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_main);
-         lat = getIntent().getStringExtra("latitude");
-         lon = getIntent().getStringExtra("longitude");
-         longit = Double.valueOf(lat);
-         longit = Double.valueOf(lon);
+        lat = getIntent().getStringExtra("latitude");
+        lon = getIntent().getStringExtra("longitude");
+        longit = Double.valueOf(lat);
+        longit = Double.valueOf(lon);
 
-         try {
+        Log.d("TAGG",getIntent().getStringExtra("latitude"));
 
-             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        try {
 
-             smf = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.maps);
-             client = LocationServices.getFusedLocationProviderClient(this);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-             Dexter.withContext(getApplicationContext()).withPermission(Manifest.permission.ACCESS_FINE_LOCATION).withListener(new PermissionListener() {
-                 @Override
-                 public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                     if (ActivityCompat.checkSelfPermission(LocationMainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(LocationMainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                         return;
-                     }
-                     Task<Location> task = client.getLastLocation();
-                     task.addOnSuccessListener(new OnSuccessListener<Location>() {
-                         @Override
-                         public void onSuccess(Location location) {
-                             LatLng userlocation = new LatLng(location.getLatitude(),location.getLongitude());
-                             LatLng suitelatlong = new LatLng(latit,longit);
-                             MarkerOptions markerOptions = new MarkerOptions().position(suitelatlong).title("Your Location");
-                             //TODO: add both markets for location of current user locaiton by latlong and point location of suite and get distance
-                             mMap.addMarker(markerOptions);
-                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(suitelatlong,10));
-                         }
-                     });
-                 }
+            smf = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.maps);
+            client = LocationServices.getFusedLocationProviderClient(this);
 
-                 @Override
-                 public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+            Dexter.withContext(getApplicationContext()).withPermission(Manifest.permission.ACCESS_FINE_LOCATION).withListener(new PermissionListener() {
+                @Override
+                public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                    if (ActivityCompat.checkSelfPermission(LocationMainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(LocationMainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                    Task<Location> task = client.getLastLocation();
+                    task.addOnSuccessListener(new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            LatLng userlocation = new LatLng(location.getLatitude(), location.getLongitude());
+                            LatLng suitelatlong = new LatLng(latit, longit);
+                            MarkerOptions markerOptions = new MarkerOptions().position(suitelatlong).title("Your Location");
+                            //TODO: add both markets for location of current user locaiton by latlong and point location of suite and get distance
+                            mMap.addMarker(markerOptions);
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(suitelatlong, 10));
+                        }
+                    });
+                }
 
-                 }
+                @Override
+                public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
 
-                 @Override
-                 public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+                }
 
-                 }
-             }).check();
-         }catch (Exception e)
-         {
-             Log.d("TAG", "onMapShowPage: "+e.getMessage());
-         }
+                @Override
+                public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+
+                }
+            }).check();
+        } catch (Exception e) {
+            Log.d("TAG", "onMapShowPage: " + e.getMessage());
+        }
 //        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
 //                .findFragmentById(R.id.maps);
 //        mapFragment.getMapAsync((OnMapReadyCallback) this);

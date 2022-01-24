@@ -20,5 +20,6 @@
     <string name="address">Address</string>
     <string name="log_out">LOG OUT</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCKTagdyfL8ldztyXUE0JbkytqtQwz1fJo</string>
+    <string name="title_activity_location">LocationActivity</string>
 
 </resources>
